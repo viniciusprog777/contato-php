@@ -1,29 +1,38 @@
 <?php 
 
 class Estado{
-    private $conex;
+
+    private $id;
+    private $nome;
+    private $sigla;
 
     public function __construct()
     {   
-        try {
-            $this->conex = new PDO('mysql:host=localhost;dbname=tecnegocios', 'root', "bcd127");
-        
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            die();
-        }
+       
     }
-
-    public function list() : array
+    public function getId()
     {
-        $sql = "select * from estados";
-
-        $estados = [];
-        
-        foreach ($this->conex->query($sql) as $key => $value) {
-            array_push($estados, $value);
-        }
-
-        return $estados;
+        return $this->id; 
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id; 
+    }
+    public function getNome()
+    {
+        return $this->nome; 
+    }
+    public function setNome($nome)
+    {
+        $this->nome = $nome; 
+    }
+    public function getSigla()
+    {
+        return $this->sigla; 
+    }
+    public function setSigla($sigla)
+    {
+        $this->sigla = $sigla; 
     }
 }

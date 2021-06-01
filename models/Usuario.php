@@ -3,95 +3,93 @@
 declare(strict_types=1);
 
 class Usuario {
-    private $conex;
+
+    private $id;
+    private $nome;
+    private $email;
+    private $telefone;
+    private $celular;
+    private $cidade;
+    private $mensagem;
+    private $estado;
 
     public function __construct()
     {
-        try {
-            $this->conex = new PDO('mysql:host=localhost;dbname=tecnegocios', 'root', "bcd127");
 
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            die();
-        }
     }
-    public function list() : array
+
+    public function getId()
     {
-        $sql = "select usuarios.id, usuarios.nome, usuarios.email, usuarios.telefone, usuarios.celular, usuarios.cidade, usuarios.mensagem, estados.sigla
-                from usuarios
-                inner join estados
-                on usuarios.estado_id = estados.id;";
-
-        $usuarios = [];
-
-        foreach ($this->conex->query($sql) as $key => $value) {
-            array_push($usuarios, $value);
-        }
-        
-        return $usuarios;
+        return $this->id; 
     }
-
-    public function insert(string $nome,
-         string $email,
-         string $telefone, 
-         string $celular, 
-         string $cidade, 
-         int $estado, 
-         string $mensagem)
+    
+    public function setId($id)
     {
-        $sql = 'insert into usuarios(nome, email, telefone, celular, cidade, mensagem, estado_id) values(?,?,?,?,?,?,?)';
-        
-        $prepare = $this->conex->prepare($sql);
-
-        $prepare->bindParam(1, $nome);
-        $prepare->bindParam(2, $email);
-        $prepare->bindParam(3, $telefone);
-        $prepare->bindParam(4, $celular);
-        $prepare->bindParam(5, $cidade);
-        $prepare->bindParam(6, $mensagem);
-        $prepare->bindParam(7, $estado);
-
-        $prepare->execute();
-
-        return $prepare->rowCount();
+        $this->id = $id; 
     }
-
-    public function update(int $id,
-        string $nome,
-        string $email,
-        string $telefone, 
-        string $celular, 
-        string $cidade, 
-        int $estado, 
-        string $mensagem)
+    public function getEmail()
     {
-        $sql = 'update usuarios set nome = ?, email = ?, telefone = ?, celular = ?, cidade = ?, mensagem = ?, estado = ? where id = ?';
-        
-        $prepare = $this->conex->prepare($sql);
-
-        $prepare->bindParam(1, $nome);
-        $prepare->bindParam(2, $email);
-        $prepare->bindParam(3, $telefone);
-        $prepare->bindParam(4, $celular);
-        $prepare->bindParam(5, $cidade);
-        $prepare->bindParam(6, $mensagem);
-        $prepare->bindParam(7, $estado);
-        $prepare->bindParam(8, $id);
-
-        $prepare->execute();
-
-        return $prepare->rowCount();
+        return $this->email; 
     }
-    public function delete(int $id): int
+    
+    public function setEmail($email)
     {
-        $sql = "delete from usuarios where id = ?";
-
-        $prepare = $this->conex->prepare($sql);
-
-        $prepare->bindParam(1, $id);
-
-        $prepare->execute();
-
-        return $prepare->rowCount();
+        $this->email = $email; 
     }
+    public function getNome()
+    {
+        return $this->nome; 
+    }
+    public function setNome($nome)
+    {
+        $this->nome = $nome; 
+    }
+    
+    public function getTelefone()
+    {
+        return $this->telefone; 
+    }
+    
+    public function setTelefone($telefone)
+    {
+        $this->telefone = $telefone; 
+    }
+    
+    public function getCelular()
+    {
+        return $this->celular; 
+    }
+    
+    public function setCelular($celular)
+    {
+        $this->celular = $celular; 
+    }
+    public function getCidade()
+    {
+        return $this->cidade; 
+    }
+    
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade; 
+    }
+    public function getMensagem()
+    {
+        return $this->mensagem; 
+    }
+    
+    public function setMensagem($mensagem)
+    {
+        $this->mensagem = $mensagem; 
+    }
+    public function getEstado()
+    {
+        return $this->estado; 
+    }
+    
+    public function setEstado($estado)
+    {
+        $this->estado = $estado; 
+    }
+    
 }

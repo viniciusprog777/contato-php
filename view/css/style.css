@@ -8,26 +8,68 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#conteiner-form {
+    width: 100vw;
+    height: 700px;
+    background-color: #615ba8;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+#conteiner-list {
+    width: 100vw;
+    min-height: 200px;
+    height: auto;
+    overflow: hidden;
+    background-color: #00a96f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#conteiner-form h1 {
+    position: absolute;
+    top: 10px;
+    color: #f1f0f0;
+    font-weight: normal;
+}
+
+#conteiner-list h1 {
+    position: relative;
+    top: -30px;
+    align-self: center;
+    color: white;
+    font-weight: normal;
+}
+
 form {
     width: 700px;
     height: 530px;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
     position: relative;
 
 
 }
 
 form button {
+    width: 100px;
+    height: 45px;
     display: flex;
     justify-self: end;
     align-self: flex-end;
-    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
     position: absolute;
-    right: 40px;
+    right: 70px;
     bottom: 10px;
+    background-color: #00a96f;
+    border: none;
+    color: #f1f0f0;
+    font-weight: bold;
+
 }
 
 #div-register {
@@ -39,6 +81,9 @@ form button {
     grid-template-columns: 270px 270px;
     justify-content: center;
     padding: 20px;
+    background-color: #f1f0f0;
+    box-shadow: 0px 2px 4px black;
+
 }
 
 .conteiner-input {
@@ -47,6 +92,7 @@ form button {
     height: 50px;
 
     margin-top: 20px;
+
 }
 
 input,
@@ -54,26 +100,38 @@ select,
 label {
     width: 100%;
     height: 100%;
-    font-size: 20px;
+    font-weight: normal;
+
 }
 
-input {
+input,
+select,
+textarea {
     padding-left: 10px;
+    background-color: #615ba8;
+    color: #f1f0f0;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+option {
+    background-color: #fff;
+    color: #615ba8;
+    font-weight: normal;
+}
+
+option:hover {
+    background-color: #615ba8;
 }
 
 textarea {
+    padding-top: 10px;
     width: 560px;
     height: 150px;
     resize: none;
 }
 
-input:not(:placeholder-shown)+label,
-input:focus+label {
-    font-size: 14px;
-    color: var(--light);
-    top: -25px;
-    left: 0;
-}
 
 #div-register label {
     position: absolute;
@@ -84,20 +142,40 @@ input:focus+label {
 
     transition: 0.2s ease-in-out;
 
-    color: var(--darkGray);
     cursor: text;
 
     pointer-events: none;
 }
 
-#div-list-usuario {
+#div-list-usuario-banner {
+    width: 810px;
+    height: 50px;
     display: grid;
-    grid-template-rows: 70px 70px 70px 70px 70px 70px;
-    grid-template-columns: 20px 70px 170px 110px 110px 70px 50px;
+    align-self: center;
+    grid-template-columns: 40px 130px 200px 140px 140px 90px 50px;
     justify-content: center;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    color: #f1f0f0;
+    background-color: #615ba8;
+    box-shadow: 0px 2px 4px black;
+}
+
+.div-list-usuario {
+    width: 810px;
+    height: 50px;
+    display: grid;
+    align-self: center;
+    grid-template-columns: 40px 130px 200px 140px 140px 90px 50px;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background-color: #f1f0f0;
+    box-shadow: 0px 2px 4px black;
 }
 
 .div-item {
-    height: 40px;
-    border-bottom: 1px solid black;
+    height: 30px;
 }
